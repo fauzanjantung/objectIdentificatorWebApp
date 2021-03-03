@@ -29,4 +29,9 @@ def imageprocess(request):
         preds = model.predict(x)
         print('Predicted', decode_predictions(preds, top=3)[0])
 
-    return render(request, 'result.html')
+        html = decode_predictions(preds, top=3)[0]
+        res = []
+        for e in html:
+            res.append((e[1],np.round(e[2]*100, 2)))
+        return render(request, 'result.html', {'res':res})
+    return render(request, 'home.html')

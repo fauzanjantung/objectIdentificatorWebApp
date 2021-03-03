@@ -9,7 +9,7 @@
 <body>
     <h1>This is image upload page</h1>
 
-    <form action="/imageUpload/imageprocess" method="post" enctype="multipart/form-data">
+    <form action="/imageprocess" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="image" id="image">
         <input type="submit" value="Submit">
